@@ -12,6 +12,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "C:/Qt/5.15.0/msvc2019_64")
 
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui)
+find_package(Python3 REQUIRED COMPONENTS Development)
 
 # Add main executable
 set(${PROJECT_NAME}_SOURCES
@@ -21,7 +22,7 @@ set(${PROJECT_NAME}_SOURCES
     ${PROJECT_NAME}.qrc
 )
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui Python3::Python)
 
 # Copy DLLS to target folder
 if(WIN32)
