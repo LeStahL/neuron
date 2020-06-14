@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/Shadow/scalable/status/dialog-error.svg</file>
+    <file>images/Shadow/scalable/status/system-devices-panel-alert.svg</file>
+    <file>images/logo210.png</file>
+    <file>images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</file>
+  </qresource>
+</RCC>

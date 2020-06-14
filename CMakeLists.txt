@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
+cmake_policy(SET CMP0020 NEW)
+
 project(neuron)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -7,16 +9,16 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 # Set the module path to custom path where qt is
-set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "C:/Qt/5.12.6/msvc2017")
+set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "C:/Qt/5.15.0/msvc2019_64")
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets Gui)
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui)
 
 # Add main executable
-set(${${PROJECT_NAME}_SOURCES}
+set(${PROJECT_NAME}_SOURCES
     ${PROJECT_NAME}.cpp
 )
-add_executable(${PROJECT_NAME} WIN32 ${${PROJECT_NAME}_SOURCES})
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Gui)
+add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui)
 
 # Copy DLLS to target folder
 if(WIN32)
