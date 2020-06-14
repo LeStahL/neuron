@@ -284,7 +284,7 @@
               <property name="font">
                <font>
                 <family>DejaVu Sans Mono</family>
-                <pointsize>10</pointsize>
+                <pointsize>8</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
                </font>
