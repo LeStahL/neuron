@@ -31,3 +31,6 @@ if(WIN32)
     message("Binary is in: $<TARGET_FILE_DIR:${PROJECT_NAME}>")
     add_custom_command(TARGET ${PROJECT_NAME} COMMAND ${WINDEPLOYQT_EXECUTABLE} "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
 endif()
+
+# Copy NFO to target folder
+add_custom_command(TARGET ${PROJECT_NAME} COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/Team210.nfo" "$<TARGET_FILE_DIR:${PROJECT_NAME}>/Team210.nfo")

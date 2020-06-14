@@ -6,7 +6,7 @@
 int main(int argc, char **args)
 {
     QApplication application(argc, args);
-    Selector selector;
+    Selector selector(&application);
     selector.show();
     return application.exec();
 }

@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -281,6 +281,14 @@
             </property>
             <item>
              <widget class="QTextEdit" name="textEdit">
+              <property name="font">
+               <font>
+                <family>DejaVu Sans Mono</family>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="documentTitle">
                <string/>
               </property>
