@@ -16,9 +16,10 @@ find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui)
 # Add main executable
 set(${PROJECT_NAME}_SOURCES
     ${PROJECT_NAME}.cpp
+    ${PROJECT_NAME}.qrc
     Selector.cpp
     Selector.ui
-    ${PROJECT_NAME}.qrc
+    DemoWindow.cpp
 )
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
 target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui)

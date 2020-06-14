@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>images/Shadow/scalable/actions/apply.svg</file>
     <file>images/Shadow/scalable/status/dialog-error.svg</file>
     <file>images/Shadow/scalable/status/system-devices-panel-alert.svg</file>
     <file>images/logo210.png</file>
