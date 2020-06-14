@@ -9,6 +9,8 @@ DemoWindow::DemoWindow(QApplication *_application, Settings *_settings, QWidget 
     , settings(_settings)
     , paused(false)
 {
+    // Initialize loading bar
+    
 }
 
 DemoWindow::~DemoWindow()
@@ -38,9 +40,22 @@ void DemoWindow::resizeGL(int width, int height)
     (void)height;
 }
 
+void DemoWindow::quad()
+{
+    glBegin(GL_QUADS);
+    glVertex3f(-1,-1,0);
+    glVertex3f(-1,1,0);
+    glVertex3f(1,1,0);
+    glVertex3f(1,-1,0);
+    glEnd();
+    glFlush();
+}
+
 void DemoWindow::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT);
+
+    quad();
 
     update();
 }
