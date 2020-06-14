@@ -29,7 +29,7 @@
       <widget class="QWidget" name="tab">
        <attribute name="icon">
         <iconset resource="neuron.qrc">
-         <normaloff>:/images/images/Shadow/scalable/status/system-devices-panel-alert.svg</normaloff>:/images/images/Shadow/scalable/status/system-devices-panel-alert.svg</iconset>
+         <normaloff>:/images/Shadow/scalable/status/system-devices-panel-alert.svg</normaloff>:/images/Shadow/scalable/status/system-devices-panel-alert.svg</iconset>
        </attribute>
        <attribute name="title">
         <string>     Settings</string>
@@ -192,7 +192,7 @@
             </property>
             <property name="icon">
              <iconset resource="neuron.qrc">
-              <normaloff>:/images/images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</normaloff>:/images/images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</iconset>
+              <normaloff>:/images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</normaloff>:/images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</iconset>
             </property>
            </widget>
           </item>
@@ -226,7 +226,7 @@
               </property>
               <property name="icon">
                <iconset resource="neuron.qrc">
-                <normaloff>:/images/images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</normaloff>:/images/images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</iconset>
+                <normaloff>:/images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</normaloff>:/images/Shadow/scalable/actions/view-more-horizontal-symbolic.svg</iconset>
               </property>
              </widget>
             </item>
@@ -246,7 +246,7 @@
       <widget class="QWidget" name="tab_2">
        <attribute name="icon">
         <iconset resource="neuron.qrc">
-         <normaloff>:/images/images/Shadow/scalable/status/dialog-error.svg</normaloff>:/images/images/Shadow/scalable/status/dialog-error.svg</iconset>
+         <normaloff>:/images/Shadow/scalable/status/dialog-error.svg</normaloff>:/images/Shadow/scalable/status/dialog-error.svg</iconset>
        </attribute>
        <attribute name="title">
         <string>    Team210.nfo</string>
@@ -300,19 +300,6 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <widget class="QPushButton" name="pushButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -350,7 +337,7 @@
         </property>
         <property name="icon">
          <iconset resource="neuron.qrc">
-          <normaloff>:/images/images/logo210.png</normaloff>:/images/images/logo210.png</iconset>
+          <normaloff>:/images/logo210.png</normaloff>:/images/logo210.png</iconset>
         </property>
         <property name="iconSize">
          <size>
