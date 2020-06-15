@@ -22,6 +22,7 @@ class DemoWindow : public QOpenGLWindow, QOpenGLFunctions
     void initializeGL();
     void resizeGL(int width, int height);
     void paintGL();
+    void quad();
     
     private:
     void keyPressEvent(QKeyEvent *e);

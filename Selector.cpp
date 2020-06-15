@@ -38,8 +38,8 @@ Selector::~Selector()
 
 void Selector::startDemo()
 {
-    if(ui.comboBox->currentText() == "720p") settings->resolution = QPoint(1280,720);
-    else if(ui.comboBox->currentText() == "1080p") settings->resolution = QPoint(1920,1080);
+    if(ui.comboBox->currentText() == "720p") settings->resolution = QSize(1280,720);
+    else if(ui.comboBox->currentText() == "1080p") settings->resolution = QSize(1920,1080);
     settings->screenSpaceAntialiasing = ui.comboBox_2->currentText().split("xSSAA").first().toInt();
     settings->postAntialiasing = ui.comboBox_3->currentText().split("xPost").first().toInt();
     settings->fullScreen = ui.checkBox->isChecked();
@@ -56,7 +56,9 @@ void Selector::startDemo()
     format.setVersion(3,3);
 
     demoWindow->setFormat(format);
-    demoWindow->show();
+    demoWindow->resize(settings->resolution);
+    if(settings->fullScreen) demoWindow->showFullScreen();
+    else demoWindow->show();
 
     close();
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QPoint>
+#include <QSize>
 
 class Settings
 {
@@ -8,7 +8,7 @@ class Settings
     Settings(){};
     virtual ~Settings(){};
 
-    QPoint resolution;
+    QSize resolution;
     int screenSpaceAntialiasing,
         postAntialiasing;
     bool fullScreen,
