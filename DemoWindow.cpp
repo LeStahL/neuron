@@ -9,9 +9,12 @@
 #include <QTabWidget>
 
 GLfloat const vertices[] = {
-    -100.5f, -100.5f, 100.0f,
-     100.5f, -100.5f, 100.0f,
-     100.0f,  100.5f, 100.0f
+    -1.f, -1.f, 0.0f,
+    -1.f, 1.f, 0.0f,
+    1.f, -1.f, 0.0f,
+    -1.f, 1.f, 0.0f,
+    1.f, -1.f, 0.0f,
+    1.f, 1.f, 0.f
 };
 
 DemoWindow::DemoWindow(QApplication *_application, Settings *_settings, QWidget *parent)
@@ -40,11 +43,14 @@ void DemoWindow::keyPressEvent(QKeyEvent *e)
 
 void DemoWindow::initializeGL()
 {
+    makeCurrent();
     initializeOpenGLFunctions();
+    printContextInformation();
+
     glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
     // Initialize loading bar
-    loadingBarProgram = new QOpenGLShaderProgram(context());
+    loadingBarProgram = new QOpenGLShaderProgram();
     loadingBarProgram->addShaderFromSourceFile(QOpenGLShader::Fragment, shaderPath + "load.frag");
     loadingBarProgram->addShaderFromSourceFile(QOpenGLShader::Vertex, shaderPath + "dummy.vert");
     loadingBarProgram->link();
@@ -54,14 +60,13 @@ void DemoWindow::initializeGL()
     vertexBufferObject.create();
     vertexBufferObject.bind();
     vertexBufferObject.setUsagePattern(QOpenGLBuffer::StaticDraw);
-    vertexBufferObject.allocate(vertices, 9*sizeof(float));
+    vertexBufferObject.allocate(vertices, sizeof(vertices));
 
     vertexArrayObject.create();
     vertexArrayObject.bind();
 
-    loadingBarProgram->enableAttributeArray("position");
-    loadingBarProgram->setAttributeBuffer("postition", GL_FLOAT, 0, 3);
-    // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void*)0);
+    loadingBarProgram->enableAttributeArray(0);
+    loadingBarProgram->setAttributeBuffer(0, GL_FLOAT, 0, 3);
 
     vertexBufferObject.release();
     vertexArrayObject.release();
@@ -91,13 +96,39 @@ void DemoWindow::paintGL()
 
     loadingBarProgram->bind();
     vertexBufferObject.bind();
+    vertexArrayObject.bind();
     loadingBarProgram->setUniformValue("iProgress", (GLfloat).75);
     loadingBarProgram->setUniformValue("iResolution", size());
 
     // quad();
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
 
     loadingBarProgram->disableAttributeArray("position");
     vertexBufferObject.release();
+    vertexArrayObject.release();
     loadingBarProgram->release();
+}
+
+void DemoWindow::printContextInformation()
+{
+  QString glType;
+  QString glVersion;
+  QString glProfile;
+ 
+  // Get Version Information
+  glType = (context()->isOpenGLES()) ? "OpenGL ES" : "OpenGL";
+  glVersion = reinterpret_cast<const char*>(glGetString(GL_VERSION));
+ 
+  // Get Profile Information
+#define CASE(c) case QSurfaceFormat::c: glProfile = #c; break
+  switch (format().profile())
+  {
+    CASE(NoProfile);
+    CASE(CoreProfile);
+    CASE(CompatibilityProfile);
+  }
+#undef CASE
+ 
+  // qPrintable() will print our QString w/o quotes around it.
+  qDebug() << qPrintable(glType) << qPrintable(glVersion) << "(" << qPrintable(glProfile) << ")";
 }

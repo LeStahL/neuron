@@ -31,8 +31,8 @@ class DemoWindow : public QOpenGLWindow, protected QOpenGLFunctions
     void initializeGL() override;
     void resizeGL(int width, int height) override;
     void paintGL() override;
-    void quad();
     
     private:
     void keyPressEvent(QKeyEvent *e);
+    void printContextInformation();
 };
