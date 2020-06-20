@@ -1,13 +1,18 @@
 #pragma once
 
 #include <QOpenGLWindow>
+#include <QOpenGLShader>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLFunctions>
+#include <QOpenGLBuffer>
+#include <QOpenGLVertexArrayObject>
 #include <QApplication>
 #include <QKeyEvent>
-#include <QOpenGLFunctions>
+#include <QString>
 
 #include "Settings.hpp"
 
-class DemoWindow : public QOpenGLWindow, QOpenGLFunctions
+class DemoWindow : public QOpenGLWindow, protected QOpenGLFunctions
 {
     Q_OBJECT
 
@@ -18,10 +23,14 @@ class DemoWindow : public QOpenGLWindow, QOpenGLFunctions
     QApplication *application;
     Settings *settings;
     bool paused;
+    QOpenGLShaderProgram *loadingBarProgram;
+    QString shaderPath;
+    QOpenGLBuffer vertexBufferObject;
+    QOpenGLVertexArrayObject vertexArrayObject;
 
-    void initializeGL();
-    void resizeGL(int width, int height);
-    void paintGL();
+    void initializeGL() override;
+    void resizeGL(int width, int height) override;
+    void paintGL() override;
     void quad();
     
     private:
